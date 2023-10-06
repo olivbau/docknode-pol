@@ -19,11 +19,11 @@ services:
       - "26656:26656"
       - "26657:26657"
     volumes:
-      - "heimdall_data:/heimdall-home"
-      - "./heimdall:/heimdall-home:rw"
+      - "heimdall_data:/heimdall-home/data"
+      - "./heimdall:/heimdall-home/config"
     entrypoint: /usr/bin/heimdalld
     command: >
-      init
+      start
       --home=/heimdall-home
       --chain=mainnet
     networks:
