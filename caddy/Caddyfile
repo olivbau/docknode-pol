@@ -1,0 +1,13 @@
+{$HOST}:1317 {
+        basicauth /* {
+                {$RPC_USERS}
+        }
+        reverse_proxy heimdall:1317
+}
+
+{$HOST}:9100 {
+        basicauth /* {
+                {$METRICS_USERS}
+        }
+        reverse_proxy nodeexporter:9100
+}
