@@ -13,8 +13,6 @@ services:
   heimdall:
     image: "0xpolygon/heimdall:latest"
     restart: unless-stopped
-    expose:
-      - 1317
     ports:
       - "26656:26656"
       - "26657:26657"
@@ -28,6 +26,25 @@ services:
       --chain=mainnet
     networks:
       - docknode-pol
+
+  heimdallrest:
+    image: "0xpolygon/heimdall:latest"
+    restart: unless-stopped
+    ports:
+      - "1317:1317"
+    volumes:
+      - "heimdall_data:/heimdall-home/data"
+      - "./heimdall:/heimdall-home/config"
+    entrypoint: /usr/bin/heimdalld
+    command: >
+      rest-server
+      --home=/heimdall-home
+      --chain=mainnet
+      --node "tcp://heimdall:26657"
+    networks:
+      - docknode-pol
+    depends_on:
+      - heimdall
 
   nodeexporter:
     image: prom/node-exporter:v1.5.0
