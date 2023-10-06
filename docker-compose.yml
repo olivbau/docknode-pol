@@ -20,10 +20,12 @@ services:
       - "26657:26657"
     volumes:
       - "heimdall_data:/heimdall-home"
+      - "./heimdall:/heimdall-home:rw"
     entrypoint: /usr/bin/heimdalld
     command: >
-      --help
+      init
       --home=/heimdall-home
+      --chain=mainnet
     networks:
       - docknode-pol
 

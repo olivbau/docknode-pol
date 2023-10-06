@@ -55,6 +55,6 @@ ufw enable
 ```bash
 docker compose pull
 docker compose up -d
-docker logs -f docknode-pol-avalanchego-1 --since 5m
+docker logs -f docknode-pol-heimdall-1 --since 5m
 docker compose down
 ```
