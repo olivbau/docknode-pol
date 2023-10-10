@@ -6,5 +6,8 @@
 # .env file
 .env
 
+heimdall/addrbok.json
+heimdall/node_key.json
+heimdall/priv_validator_key.json
 heimdall/data/*
 !heimdall/data/.gitkeep
