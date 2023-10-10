@@ -5,7 +5,6 @@ networks:
     driver: bridge
 
 volumes:
-  heimdall_data: {}
   caddy_data: {}
   caddy_config: {}
 
@@ -17,8 +16,8 @@ services:
       - "26656:26656"
       - "26657:26657"
     volumes:
-      - "heimdall_data:/heimdall-home/data"
-      - "./heimdall:/heimdall-home/config"
+      - "./heimdall/config:/heimdall-home/config"
+      - "./heimdall/data:/heimdall-home/data"
     entrypoint: /usr/bin/heimdalld
     command: >
       start
@@ -33,8 +32,8 @@ services:
     ports:
       - "1317:1317"
     volumes:
-      - "heimdall_data:/heimdall-home/data"
-      - "./heimdall:/heimdall-home/config"
+      - "./heimdall/config:/heimdall-home/config"
+      - "./heimdall/data:/heimdall-home/data"
     entrypoint: /usr/bin/heimdalld
     command: >
       rest-server
