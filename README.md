@@ -37,8 +37,6 @@ docker run --rm caddy:2-alpine caddy hash-password --plaintext 'password'
 
 # Set users and passwords for basic auth
 # Set the host
-# Set L1 rpc url
-# Set L2 chain id (42161: politrum One, 42170: politrum Nova)
 nano .env
 ```
 
