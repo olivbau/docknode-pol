@@ -69,6 +69,7 @@ services:
       - "80:80"
       - "443:443"
       - "9100:9100"
+      - "26657:26657"
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
