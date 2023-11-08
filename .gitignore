@@ -7,7 +7,5 @@
 .env
 
 heimdall/config/addrbok.json
-heimdall/config/node_key.json
-heimdall/config/priv_validator_key.json
 heimdall/data/*
 !heimdall/data/.gitkeep
