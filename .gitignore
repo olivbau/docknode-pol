@@ -6,6 +6,12 @@
 # .env file
 .env
 
-heimdall/config/addrbok.json
+heimdall/config/*
+!heimdall/config/app.toml
+!heimdall/config/config.toml
+!heimdall/config/genesis.json
+!heimdall/config/heimdall-config.toml
+!heimdall/config/node_key.json
+!heimdall/config/priv_validator_key.json
 heimdall/data/*
 !heimdall/data/.gitkeep
