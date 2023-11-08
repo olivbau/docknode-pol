@@ -84,6 +84,10 @@ ufw enable
 
 ```bash
 docker compose pull
+
+# Init
+docker run -v ./heimdall/config:/heimdall-home/config:rw -v ./heimdall/data:/heimdall-home/data:rw 0xpolygon/heimdall:latest init --home=/heimdall-home
+
 docker compose up -d
 docker logs -f docknode-pol-heimdall-1 --since 5m
 docker compose down
