@@ -57,7 +57,13 @@ git clone https://github.com/olivbau/docknode-pol.git
 cd docknode-pol
 ```
 
-2. Configure environement variables
+2. Create config files
+
+```bash
+docker run -v ./heimdall/config:/heimdall-home/config:rw -v ./heimdall/data:/heimdall-home/data:rw 0xpolygon/heimdall:latest init --home=/heimdall-home
+```
+
+3. Configure environement variables
 
 ```bash
 cp .env.example .env
@@ -70,7 +76,7 @@ docker run --rm caddy:2-alpine caddy hash-password --plaintext 'password'
 nano .env
 ```
 
-3. Setup UFW
+4. Setup UFW
 
 ```bash
 ufw allow ssh
@@ -80,13 +86,11 @@ ufw deny 1317
 ufw enable
 ```
 
-1. Run
+5. Run
 
 ```bash
 docker compose pull
 
-# Init
-docker run -v ./heimdall/config:/heimdall-home/config:rw -v ./heimdall/data:/heimdall-home/data:rw 0xpolygon/heimdall:latest init --home=/heimdall-home
 
 docker compose up -d
 docker logs -f docknode-pol-heimdall-1 --since 5m
