@@ -14,7 +14,8 @@ services:
     restart: unless-stopped
     ports:
       - "26656:26656"
-      - "26657:26657"
+    expose:
+      - 26657
     volumes:
       - "./heimdall/config:/heimdall-home/config"
       - "./heimdall/data:/heimdall-home/data"
