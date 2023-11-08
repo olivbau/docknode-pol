@@ -11,7 +11,9 @@
       "max_age": "100000"
     },
     "validator": {
-      "pub_key_types": ["secp256k1"]
+      "pub_key_types": [
+        "secp256k1"
+      ]
     }
   },
   "app_hash": "",

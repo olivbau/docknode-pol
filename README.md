@@ -75,12 +75,12 @@ nano .env
 ```bash
 ufw allow ssh
 ufw allow 26656
-ufw deny 1317
 ufw deny 26657
+ufw deny 1317
 ufw enable
 ```
 
-4. Run
+1. Run
 
 ```bash
 docker compose pull

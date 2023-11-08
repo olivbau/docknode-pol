@@ -29,8 +29,8 @@ services:
   heimdallrest:
     image: "0xpolygon/heimdall:latest"
     restart: unless-stopped
-    ports:
-      - "1317:1317"
+    expose:
+      - 1317
     volumes:
       - "./heimdall/config:/heimdall-home/config"
       - "./heimdall/data:/heimdall-home/data"
