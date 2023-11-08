@@ -11,7 +11,5 @@ heimdall/config/*
 !heimdall/config/config.toml
 !heimdall/config/genesis.json
 !heimdall/config/heimdall-config.toml
-!heimdall/config/node_key.json
-!heimdall/config/priv_validator_key.json
 heimdall/data/*
 !heimdall/data/.gitkeep
