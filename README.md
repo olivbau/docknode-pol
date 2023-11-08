@@ -13,9 +13,10 @@
 apt update
 apt upgrade
 apt install git
+apt install screen
 
 # Or all in one command
-apt update && apt upgrade -y && apt install -y git
+apt update && apt upgrade -y && apt install -y git screen
 
 # install docker https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
 
@@ -83,4 +84,9 @@ docker compose pull
 docker compose up -d
 docker logs -f docknode-pol-heimdall-1 --since 5m
 docker compose down
+```
+
+```bash
+curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client heimdall --extract-dir ./heimdall/data --validate-checksum true
+curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client bor --extract-dir ./bor/data --validate-checksum true
 ```
