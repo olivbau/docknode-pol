@@ -18,6 +18,32 @@ apt install git
 apt update && apt upgrade -y && apt install -y git
 
 # install docker https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+
+
+# Prepare disks (8 To)
+# Example: merge sda (4To) and sdb (4To)
+apt install lvm2
+
+parted /dev/sda
+# mklabel gpt
+# mkpart primary 0% 100%
+# quit
+
+parted /dev/sdb
+# mklabel gpt
+# mkpart primary 0% 100%
+# quit
+
+pvcreate /dev/sda1
+pvcreate /dev/sdb1
+vgcreate vg0 /dev/sda1 /dev/sdb1
+lvcreate -l 100%FREE -n media vg0
+mke2fs -t ext4 /dev/vg0/media
+
+
+nano /etc/fstab
+# Add this line at the end of the file:
+# /dev/vg0/media /mnt/vg0 ext4 defaults 0 1
 ```
 
 1. Clone the repository and
