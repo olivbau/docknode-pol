@@ -44,7 +44,10 @@ mke2fs -t ext4 /dev/vg0/media
 
 nano /etc/fstab
 # Add this line at the end of the file:
-# /dev/vg0/media /mnt/vg0 ext4 defaults 0 1
+# /dev/vg0/media /mnt/media ext4 defaults 0 1
+
+reboot
+cd /mnt/media
 ```
 
 1. Clone the repository and
