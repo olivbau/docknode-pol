@@ -17,8 +17,8 @@ services:
     expose:
       - 26657
     volumes:
-      - "./heimdall/config:/heimdall-home/config"
-      - "./heimdall/data:/heimdall-home/data"
+      - "./heimdall/config:/heimdall-home/config:rw"
+      - "./heimdall/data:/heimdall-home/data:rw"
     entrypoint: /usr/bin/heimdalld
     command: >
       start
@@ -33,8 +33,8 @@ services:
     expose:
       - 1317
     volumes:
-      - "./heimdall/config:/heimdall-home/config"
-      - "./heimdall/data:/heimdall-home/data"
+      - "./heimdall/config:/heimdall-home/config:rw"
+      - "./heimdall/data:/heimdall-home/data:rw"
     entrypoint: /usr/bin/heimdalld
     command: >
       rest-server
