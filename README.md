@@ -98,6 +98,6 @@ docker compose down
 ```
 
 ```bash
-curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client heimdall --extract-dir ./heimdall/data --validate-checksum false
-curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client bor --extract-dir ./bor/data --validate-checksum false
+curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client heimdall --extract-dir ./heimdall/data --validate-checksum true
+curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client bor --extract-dir ./bor/data --validate-checksum true
 ```
