@@ -5,23 +5,22 @@
 - Fullnode: `https://mydomain.com`
 - Node exporter: `https://mydomain.com:9100/metrics`
 
-## Install
-
-0. VPS config (optional)
+## Prerequisites
 
 ```bash
-apt update
-apt upgrade
-apt install git
-apt install screen
-
-# Or all in one command
+# Install git and screen
 apt update && apt upgrade -y && apt install -y git screen
 
-# install docker https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+# Install docker
+# https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+```
 
+## How to use
 
-# Prepare disks (8 To)
+0. Disks config (optional)
+
+```bash
+# How to create a 8TB disk from two 4TB disks
 # Example: merge sda (4To) and sdb (4To)
 apt install lvm2
 
@@ -50,14 +49,14 @@ reboot
 cd /mnt/media
 ```
 
-1. Clone the repository and
+1. Clone the repository
 
 ```bash
 git clone https://github.com/olivbau/docknode-pol.git
 cd docknode-pol
 ```
 
-2. Create config files
+2. Generate config files
 
 ```bash
 docker run -v ./heimdall/config:/heimdall-home/config:rw -v ./heimdall/data:/heimdall-home/data:rw 0xpolygon/heimdall:latest init --home=/heimdall-home
@@ -76,7 +75,20 @@ docker run --rm caddy:2-alpine caddy hash-password --plaintext 'password'
 nano .env
 ```
 
-4. Setup UFW
+4. Snapshots (optional)
+
+```bash
+# Using screen is recommended
+# Create screen session (screen -S snapshots)
+# Leave screen session (CTRL+A+D)
+# Attache screen session (screen -R snapshots)
+# Kill screen sessuin (screen -S snapshots -X quit)
+
+curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client heimdall --extract-dir ./heimdall/data --validate-checksum true
+curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client bor --extract-dir ./bor/data --validate-checksum true
+```
+
+5. Setup UFW
 
 ```bash
 ufw allow ssh
@@ -86,18 +98,16 @@ ufw deny 1317
 ufw enable
 ```
 
-5. Run
+6. Run
 
 ```bash
 docker compose pull
-
-
 docker compose up -d
-docker logs -f docknode-pol-heimdall-1 --since 5m
-docker compose down
 ```
 
+## Useful commands
+
 ```bash
-curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client heimdall --extract-dir ./heimdall/data --validate-checksum true
-curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client bor --extract-dir ./bor/data --validate-checksum true
+docker logs -f docknode-pol-heimdall-1 --since 5m
+docker compose down
 ```
