@@ -4,10 +4,3 @@
         }
         reverse_proxy nodeexporter:9100
 }
-
-{$HOST}:26657 {
-        basicauth /* {
-                {$RPC_USERS}
-        }
-        reverse_proxy heimdall:26657
-}
