@@ -18,6 +18,8 @@ bor/*
 !bor/genesis.json
 !bor/config.toml
 
-!bor/chaindata
-bor/chaindata/*
-!bor/chaindata/.gitkeep
+!bor/bor
+bor/bor/*
+!bor/bor/chaindata
+bor/bor/chaindata/*
+!bor/bor/chaindata/.gitkeep

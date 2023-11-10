@@ -85,7 +85,7 @@ nano .env
 # Kill screen sessuin (screen -S snapshots -X quit)
 
 curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client heimdall --extract-dir ./heimdall/data --validate-checksum true
-curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client bor --extract-dir ./bor/chaindata --validate-checksum true
+curl -L https://snapshot-download.polygon.technology/snapdown.sh | bash -s -- --network mainnet --client bor --extract-dir ./bor/bor/chaindata --validate-checksum true
 ```
 
 5. Setup UFW
