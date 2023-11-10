@@ -56,7 +56,6 @@ services:
     volumes:
       - "./bor/config:/bor-home/config:rw"
       - "./bor/data:/bor-home/data:rw"
-    entrypoint: /usr/bin/heimdalld
     command: >
       server
       --config /bor-home/config.toml

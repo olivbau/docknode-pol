@@ -95,6 +95,7 @@ ufw allow ssh
 ufw allow 26656
 ufw deny 26657
 ufw deny 1317
+ufw deny 8545
 ufw enable
 ```
 
