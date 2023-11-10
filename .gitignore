@@ -13,3 +13,8 @@ heimdall/config/*
 !heimdall/config/heimdall-config.toml
 heimdall/data/*
 !heimdall/data/.gitkeep
+
+bor/config/*
+!bor/config/genesis.json
+bor/data/*
+!bor/data/.gitkeep

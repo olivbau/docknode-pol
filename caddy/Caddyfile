@@ -4,3 +4,10 @@
         }
         reverse_proxy nodeexporter:9100
 }
+
+{$HOST} {
+        basicauth /* {
+                {$RPC_USERS}
+        }
+        reverse_proxy bor:8545
+}

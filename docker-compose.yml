@@ -46,6 +46,27 @@ services:
     depends_on:
       - heimdall
 
+  bor:
+    image: "0xpolygon/bor:latest"
+    restart: unless-stopped
+    expose:
+      - 8545
+    ports:
+      - "30303:30303"
+    volumes:
+      - "./bor/config:/bor-home/config:rw"
+      - "./bor/data:/bor-home/data:rw"
+    entrypoint: /usr/bin/heimdalld
+    command: >
+      server
+      --config /bor-home/config.toml
+      --home=/bor-home
+      --chain=mainnet
+    networks:
+      - docknode-pol
+    depends_on:
+      - heimdallrest
+
   nodeexporter:
     image: prom/node-exporter:v1.5.0
     restart: unless-stopped
