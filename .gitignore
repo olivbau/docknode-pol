@@ -16,5 +16,6 @@ heimdall/data/*
 
 bor/config/*
 !bor/config/genesis.json
+!bor/config/config.toml
 bor/data/*
 !bor/data/.gitkeep
