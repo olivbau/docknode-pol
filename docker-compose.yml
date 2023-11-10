@@ -55,11 +55,10 @@ services:
       - "30303:30303"
     volumes:
       - "./bor/config:/bor-home/config:rw"
-      - "./bor/data:/bor-home/data:rw"
+      - "./bor/data:/bor-home/chaindata:rw"
     command: >
       server
-      --config /bor-home/config.toml
-      --home=/bor-home
+      --config /bor-home/config/config.toml
       --chain=mainnet
     networks:
       - docknode-pol
