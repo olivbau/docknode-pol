@@ -110,5 +110,6 @@ docker compose up -d
 
 ```bash
 docker logs -f docknode-pol-heimdall-1 --since 5m
+docker logs -f docknode-pol-bor-1 --since 5m
 docker compose down
 ```
